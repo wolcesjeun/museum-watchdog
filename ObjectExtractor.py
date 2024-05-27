@@ -38,7 +38,30 @@ class ObjectExtractor:
 
     def object_extractor_from_image(self, image_path: str) -> str:
         prompt_parts = [
-            "Extract the objects in the provided image and output them in a list in alphabetical order",
+            """
+            You are a museum security camera. In the visual, identify the number of historical artifacts you see and list them. I need you to provide a JSON output where you first state the total number of artifacts. Then, create a nested JSON or a list for the artifacts, and for each artifact, include small JSON data containing the artifact name, artifact type, and artifact category.
+            Example JSON output:
+                {
+                "total_artifacts": 3,
+                "artifacts": [
+                    {
+                        "artifact_name": "Ancient Vase",
+                        "artifact_type": "Ceramics",
+                        "artifact_category": "Ancient Artifacts"
+                    },
+                    {
+                        "artifact_name": "Medieval Sword",
+                        "artifact_type": "Weaponry",
+                        "artifact_category": "Medieval Artifacts"
+                    },
+                    {
+                        "artifact_name": "Renaissance Painting",
+                        "artifact_type": "Painting",
+                        "artifact_category": "Renaissance Art"
+                    }
+                ]
+                }"""
+            # "Extract the objects in the provided image and output them in a list in alphabetical order",
             # *** promt düzenlenecek ve json cıktısı adam edilecek.****
             # "Sen bir müze güvenlik kamerası bekçi köpeğisin senin işin gördüğün görselde bir müze eseri aramak ve bu eseri oldukça detaylandırıp çıktı vermek",
             "Image: ",
